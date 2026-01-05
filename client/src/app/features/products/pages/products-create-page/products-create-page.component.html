@@ -1,8 +1,10 @@
-<app-product-upsert-form
-  mode="create"
-  [initialValue]="null"
-  [saving]="saving"
-  [error]="error"
-  (submitted)="onCreate($event)"
-  (cancelled)="onCancel()"
-></app-product-upsert-form>
+<div class="page-container">
+  <app-product-upsert-form
+    mode="create"
+    [initialValue]="null"
+    [saving]="saving"
+    [error]="error"
+    (submitted)="onCreate($event)"
+    (cancelled)="onCancel()"
+  ></app-product-upsert-form>
+</div>

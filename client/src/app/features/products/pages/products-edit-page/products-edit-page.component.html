@@ -1,19 +1,21 @@
-@if (loading) {
-<div class="loading-container">
-  <p>Loading product...</p>
+<div class="page-container">
+  @if (loading) {
+  <div class="loading-container">
+    <p>Loading product...</p>
+  </div>
+  } @else if (error && !initialValue) {
+  <div class="error-container">
+    <p class="error-message">{{ error }}</p>
+    <button mat-raised-button (click)="onCancel()">Back to Products</button>
+  </div>
+  } @else {
+  <app-product-upsert-form
+    mode="edit"
+    [initialValue]="initialValue"
+    [saving]="saving"
+    [error]="error"
+    (submitted)="onUpdate($event)"
+    (cancelled)="onCancel()"
+  ></app-product-upsert-form>
+  }
 </div>
-} @else if (error && !initialValue) {
-<div class="error-container">
-  <p class="error-message">{{ error }}</p>
-  <button mat-raised-button (click)="onCancel()">Back to Products</button>
-</div>
-} @else {
-<app-product-upsert-form
-  mode="edit"
-  [initialValue]="initialValue"
-  [saving]="saving"
-  [error]="error"
-  (submitted)="onUpdate($event)"
-  (cancelled)="onCancel()"
-></app-product-upsert-form>
-}

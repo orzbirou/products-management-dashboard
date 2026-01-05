@@ -27,4 +27,8 @@ export class ProductsApiService {
   update(id: string, dto: ProductUpsertDto): Observable<Product> {
     return this.http.patch<Product>(`${this.baseUrl}/${id}`, dto);
   }
+
+  delete(id: string): Observable<void> {
+    return this.http.delete<void>(`${this.baseUrl}/${id}`);
+  }
 }

@@ -19,6 +19,8 @@ import { ProductsListState } from '../../data-access/models/product-list-view';
 import { ProductsFacade } from '../../state/products.facade';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { ProductStatusFilter } from '../../data-access/models/products-query.model';
+import { ProductsApiService } from '../../data-access/products-api.service';
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-products-list-page',
@@ -48,6 +50,7 @@ export class ProductsListPageComponent implements OnInit {
   searchControl = new FormControl<string>('', { nonNullable: true });
   statusControl = new FormControl<ProductStatusFilter>('all', { nonNullable: true });
 
+  deletingIds = new Set<string>();
 
   displayedColumns: string[] = [
     'id',
@@ -63,7 +66,8 @@ export class ProductsListPageComponent implements OnInit {
 
   constructor(
     private facade: ProductsFacade,
-    private router: Router
+    private router: Router,
+    private api: ProductsApiService
   ) {
     this.loading$ = this.facade.loading$;
     this.error$ = this.facade.error$;
@@ -116,5 +120,29 @@ export class ProductsListPageComponent implements OnInit {
   goToEdit(id: string): void {
     this.router.navigate(['/products', id]);
   }
-}
 
+  deleteProduct(id: string, name: string): void {
+    if (!confirm(`Are you sure you want to delete "${name}"?`)) {
+      return;
+    }
+
+    this.deletingIds.add(id);
+    this.api.delete(id)
+      .pipe(
+        finalize(() => this.deletingIds.delete(id))
+      )
+      .subscribe({
+        next: () => {
+          this.facade.loadAll();
+        },
+        error: (error) => {
+          console.error('Failed to delete product:', error);
+          alert('Failed to delete product. Please try again.');
+        }
+      });
+  }
+
+  isDeleting(id: string): boolean {
+    return this.deletingIds.has(id);
+  }
+}

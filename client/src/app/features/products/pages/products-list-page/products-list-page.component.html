@@ -117,8 +117,11 @@
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef>Actions</th>
         <td mat-cell *matCellDef="let product">
-          <button mat-button color="primary" (click)="goToEdit(product.id)">
+          <button mat-button color="primary" (click)="goToEdit(product.id)" [disabled]="isDeleting(product.id)">
             Edit
+          </button>
+          <button mat-button color="warn" (click)="deleteProduct(product.id, product.name)" [disabled]="isDeleting(product.id)">
+            {{ isDeleting(product.id) ? 'Deleting...' : 'Delete' }}
           </button>
         </td>
       </ng-container>
@@ -183,9 +186,14 @@
           </div>
         </div>
         
-        <button mat-raised-button color="primary" (click)="goToEdit(product.id)" class="edit-btn-mobile">
-          Edit
-        </button>
+        <div class="mobile-actions">
+          <button mat-raised-button color="primary" (click)="goToEdit(product.id)" [disabled]="isDeleting(product.id)" class="edit-btn-mobile">
+            Edit
+          </button>
+          <button mat-raised-button color="warn" (click)="deleteProduct(product.id, product.name)" [disabled]="isDeleting(product.id)" class="delete-btn-mobile">
+            {{ isDeleting(product.id) ? 'Deleting...' : 'Delete' }}
+          </button>
+        </div>
       </div>
     </div>
     }
