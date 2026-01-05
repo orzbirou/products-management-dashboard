@@ -1,10 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ProductsListPageComponent } from './products-list-page.component';
-import { ProductsFacade } from '../../state/products.facade';
-import { ProductsApiService } from '../../data-access/products-api.service';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { Router } from '@angular/router';
 import { of } from 'rxjs';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { ProductsApiService } from '../../data-access/products-api.service';
+import { ProductsFacade } from '../../state/products.facade';
+import { ProductsListPageComponent } from './products-list-page.component';
 
 describe('ProductsListPageComponent', () => {
   let component: ProductsListPageComponent;
@@ -14,16 +14,20 @@ describe('ProductsListPageComponent', () => {
   let mockRouter: jasmine.SpyObj<Router>;
 
   beforeEach(async () => {
-    mockFacade = jasmine.createSpyObj('ProductsFacade', ['loadAll', 'setQuery'], {
-      loading$: of(false),
-      error$: of(null),
-      productsListView$: of({
-        items: [],
-        total: 0,
-        page: 0,
-        pageSize: 10
-      })
-    });
+    mockFacade = jasmine.createSpyObj(
+      'ProductsFacade',
+      ['loadAll', 'setQuery'],
+      {
+        loading$: of(false),
+        error$: of(null),
+        productsListView$: of({
+          items: [],
+          total: 0,
+          page: 0,
+          pageSize: 10,
+        }),
+      }
+    );
 
     mockApiService = jasmine.createSpyObj('ProductsApiService', ['delete']);
     mockRouter = jasmine.createSpyObj('Router', ['navigate']);
@@ -33,8 +37,8 @@ describe('ProductsListPageComponent', () => {
       providers: [
         { provide: ProductsFacade, useValue: mockFacade },
         { provide: ProductsApiService, useValue: mockApiService },
-        { provide: Router, useValue: mockRouter }
-      ]
+        { provide: Router, useValue: mockRouter },
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ProductsListPageComponent);
@@ -81,7 +85,9 @@ describe('ProductsListPageComponent', () => {
 
     component.deleteProduct('123', 'Test Product');
 
-    expect(window.confirm).toHaveBeenCalledWith('Are you sure you want to delete "Test Product"?');
+    expect(window.confirm).toHaveBeenCalledWith(
+      'Are you sure you want to delete "Test Product"?'
+    );
     expect(mockApiService.delete).toHaveBeenCalledWith('123');
   });
 

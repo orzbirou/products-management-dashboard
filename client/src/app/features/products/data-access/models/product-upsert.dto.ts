@@ -3,5 +3,5 @@ export interface ProductUpsertDto {
   description?: string;
   price: number;
   imgUrl?: string;
-  status: 'active' | 'inactive';
+  status: 'active' | 'inactive' | 'draft';
 }

@@ -2,11 +2,17 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, combineLatest, finalize, map } from 'rxjs';
 
 import { Product } from '../data-access/models/product.model';
+import {
+  DEFAULT_PRODUCTS_QUERY,
+  ProductsQuery,
+} from '../data-access/models/products-query.model';
 import { ProductsApiService } from '../data-access/products-api.service';
-import { DEFAULT_PRODUCTS_QUERY, ProductsQuery } from '../data-access/models/products-query.model';
 
-import { applyProductsQuery, ProductsQueryResult } from './apply-products-query';
 import { ProductsListState } from '../data-access/models/product-list-view';
+import {
+  applyProductsQuery,
+  ProductsQueryResult,
+} from './apply-products-query';
 
 @Injectable({ providedIn: 'root' })
 export class ProductsFacade {
@@ -21,21 +27,34 @@ export class ProductsFacade {
   private readonly errorSubject = new BehaviorSubject<string | null>(null);
   public readonly error$ = this.errorSubject.asObservable();
 
-  private readonly querySubject = new BehaviorSubject<ProductsQuery>(DEFAULT_PRODUCTS_QUERY);
+  private readonly querySubject = new BehaviorSubject<ProductsQuery>(
+    DEFAULT_PRODUCTS_QUERY
+  );
   public readonly query$ = this.querySubject.asObservable();
 
-  public readonly queryResult$ = combineLatest([this.allProducts$, this.query$]).pipe(
-    map(([products, query]): ProductsQueryResult => applyProductsQuery(products, query))
+  public readonly queryResult$ = combineLatest([
+    this.allProducts$,
+    this.query$,
+  ]).pipe(
+    map(
+      ([products, query]): ProductsQueryResult =>
+        applyProductsQuery(products, query)
+    )
   );
 
   // One stream for the list screen (keeps items/total in sync with page/pageSize)
-  public readonly productsListView$ = combineLatest([this.queryResult$, this.query$]).pipe(
-    map(([result, query]): ProductsListState => ({
-      items: result.items,
-      total: result.total,
-      page: query.page,
-      pageSize: query.pageSize,
-    }))
+  public readonly productsListView$ = combineLatest([
+    this.queryResult$,
+    this.query$,
+  ]).pipe(
+    map(
+      ([result, query]): ProductsListState => ({
+        items: result.items,
+        total: result.total,
+        page: query.page,
+        pageSize: query.pageSize,
+      })
+    )
   );
 
   loadAll(): void {

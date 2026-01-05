@@ -1,10 +1,22 @@
-import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import { MatButtonModule } from '@angular/material/button';
-import { CommonModule } from '@angular/common';
 import { ProductUpsertDto } from '../../data-access/models/product-upsert.dto';
 
 @Component({
@@ -34,10 +46,20 @@ export class ProductUpsertFormComponent implements OnChanges {
 
   constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(60)]],
+      name: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(2),
+          Validators.maxLength(60),
+        ],
+      ],
       description: ['', [Validators.maxLength(300)]],
       price: [0, [Validators.required, Validators.min(0.01)]],
-      status: ['active' as 'active' | 'inactive', [Validators.required]],
+      status: [
+        'active' as 'active' | 'inactive' | 'draft',
+        [Validators.required],
+      ],
       imgUrl: ['', [Validators.pattern(/^https?:\/\/.+/)]],
     });
   }

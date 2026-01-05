@@ -1,4 +1,4 @@
-export type ProductStatusFilter = 'all' | 'active' | 'inactive';
+export type ProductStatusFilter = 'all' | 'active' | 'inactive' | 'draft';
 
 export interface ProductsQuery {
   q: string;
@@ -15,6 +15,5 @@ export const DEFAULT_PRODUCTS_QUERY: ProductsQuery = {
   sortBy: 'none',
   sortDir: 'asc',
   page: 0,
-  pageSize: 10
+  pageSize: 10,
 };
-

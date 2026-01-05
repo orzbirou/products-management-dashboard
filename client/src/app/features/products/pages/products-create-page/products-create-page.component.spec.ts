@@ -1,9 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ProductsCreatePageComponent } from './products-create-page.component';
-import { ProductsApiService } from '../../data-access/products-api.service';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { Router } from '@angular/router';
 import { of, throwError } from 'rxjs';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { ProductsApiService } from '../../data-access/products-api.service';
+import { ProductsCreatePageComponent } from './products-create-page.component';
 
 describe('ProductsCreatePageComponent', () => {
   let component: ProductsCreatePageComponent;
@@ -19,11 +19,13 @@ describe('ProductsCreatePageComponent', () => {
       imports: [ProductsCreatePageComponent, NoopAnimationsModule],
       providers: [
         { provide: ProductsApiService, useValue: apiSpy },
-        { provide: Router, useValue: routerSpy }
-      ]
+        { provide: Router, useValue: routerSpy },
+      ],
     }).compileComponents();
 
-    apiService = TestBed.inject(ProductsApiService) as jasmine.SpyObj<ProductsApiService>;
+    apiService = TestBed.inject(
+      ProductsApiService
+    ) as jasmine.SpyObj<ProductsApiService>;
     router = TestBed.inject(Router) as jasmine.SpyObj<Router>;
     fixture = TestBed.createComponent(ProductsCreatePageComponent);
     component = fixture.componentInstance;
@@ -41,14 +43,14 @@ describe('ProductsCreatePageComponent', () => {
       price: 10.99,
       status: 'active' as const,
       createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString()
+      updatedAt: new Date().toISOString(),
     };
     apiService.create.and.returnValue(of(mockProduct));
 
     component.onCreate({
       name: 'Test Product',
       price: 10.99,
-      status: 'active'
+      status: 'active',
     });
 
     expect(apiService.create).toHaveBeenCalled();
@@ -56,12 +58,14 @@ describe('ProductsCreatePageComponent', () => {
   });
 
   it('should set error on failed create', () => {
-    apiService.create.and.returnValue(throwError(() => ({ error: { message: 'Failed to create' } })));
+    apiService.create.and.returnValue(
+      throwError(() => ({ error: { message: 'Failed to create' } }))
+    );
 
     component.onCreate({
       name: 'Test Product',
       price: 10.99,
-      status: 'active'
+      status: 'active',
     });
 
     expect(component.error).toBe('Failed to create');

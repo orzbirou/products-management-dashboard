@@ -1,8 +1,11 @@
+import {
+  HttpClientTestingModule,
+  HttpTestingController,
+} from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { ProductsApiService } from './products-api.service';
-import { Product } from './models/product.model';
 import { ProductUpsertDto } from './models/product-upsert.dto';
+import { Product } from './models/product.model';
+import { ProductsApiService } from './products-api.service';
 
 describe('ProductsApiService', () => {
   let service: ProductsApiService;
@@ -12,7 +15,7 @@ describe('ProductsApiService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [ProductsApiService]
+      providers: [ProductsApiService],
     });
     service = TestBed.inject(ProductsApiService);
     httpMock = TestBed.inject(HttpTestingController);
@@ -37,11 +40,11 @@ describe('ProductsApiService', () => {
           status: 'active',
           imgUrl: 'http://example.com/img1.jpg',
           createdAt: new Date().toISOString(),
-          updatedAt: new Date().toISOString()
-        }
+          updatedAt: new Date().toISOString(),
+        },
       ];
 
-      service.getAll().subscribe(products => {
+      service.getAll().subscribe((products) => {
         expect(products).toEqual(mockProducts);
         expect(products.length).toBe(1);
       });
@@ -62,10 +65,10 @@ describe('ProductsApiService', () => {
         status: 'active',
         imgUrl: 'http://example.com/img1.jpg',
         createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString()
+        updatedAt: new Date().toISOString(),
       };
 
-      service.getById('1').subscribe(product => {
+      service.getById('1').subscribe((product) => {
         expect(product).toEqual(mockProduct);
       });
 
@@ -82,17 +85,17 @@ describe('ProductsApiService', () => {
         description: 'New Description',
         price: 19.99,
         status: 'active',
-        imgUrl: 'http://example.com/new.jpg'
+        imgUrl: 'http://example.com/new.jpg',
       };
 
       const mockResponse: Product = {
         id: '2',
         ...dto,
         createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString()
+        updatedAt: new Date().toISOString(),
       };
 
-      service.create(dto).subscribe(product => {
+      service.create(dto).subscribe((product) => {
         expect(product).toEqual(mockResponse);
       });
 
@@ -110,17 +113,17 @@ describe('ProductsApiService', () => {
         description: 'Updated Description',
         price: 29.99,
         status: 'inactive',
-        imgUrl: 'http://example.com/updated.jpg'
+        imgUrl: 'http://example.com/updated.jpg',
       };
 
       const mockResponse: Product = {
         id: '1',
         ...dto,
         createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString()
+        updatedAt: new Date().toISOString(),
       };
 
-      service.update('1', dto).subscribe(product => {
+      service.update('1', dto).subscribe((product) => {
         expect(product).toEqual(mockResponse);
       });
 
@@ -133,7 +136,7 @@ describe('ProductsApiService', () => {
 
   describe('delete', () => {
     it('should delete a product', () => {
-      service.delete('1').subscribe(response => {
+      service.delete('1').subscribe((response) => {
         expect(response).toBeNull();
       });
 

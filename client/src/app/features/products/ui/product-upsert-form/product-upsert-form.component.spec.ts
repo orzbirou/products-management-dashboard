@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ProductUpsertFormComponent } from './product-upsert-form.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { ProductUpsertFormComponent } from './product-upsert-form.component';
 
 describe('ProductUpsertFormComponent', () => {
   let component: ProductUpsertFormComponent;

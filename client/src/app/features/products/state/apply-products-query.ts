@@ -1,13 +1,15 @@
-import { Product } from "../data-access/models/product.model";
-import { ProductsQuery } from "../data-access/models/products-query.model";
-
+import { Product } from '../data-access/models/product.model';
+import { ProductsQuery } from '../data-access/models/products-query.model';
 
 export interface ProductsQueryResult {
   items: Product[];
   total: number;
 }
 
-export function applyProductsQuery(products: readonly Product[], query: ProductsQuery): ProductsQueryResult {
+export function applyProductsQuery(
+  products: readonly Product[],
+  query: ProductsQuery
+): ProductsQueryResult {
   const q = query.q.trim().toLowerCase();
 
   //Filter by status + search

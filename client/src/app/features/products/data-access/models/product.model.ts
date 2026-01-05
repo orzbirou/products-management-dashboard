@@ -4,7 +4,7 @@ export interface Product {
   description?: string;
   price: number;
   imgUrl?: string;
-  status: 'active' | 'inactive';
+  status: 'active' | 'inactive' | 'draft';
   createdAt: string;
   updatedAt: string;
 }
