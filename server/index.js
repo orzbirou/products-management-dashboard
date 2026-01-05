@@ -9,7 +9,13 @@ const path = require('path');
 const app = express();
 
 // Middlewares
-app.use(cors());
+app.use(cors({
+  origin: [
+    'http://localhost:4200',
+    'https://orzbirou.github.io'
+  ],
+  credentials: true
+}));
 app.use(express.json());
 app.use(morgan('dev'));
 
