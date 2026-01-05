@@ -1,1 +1,8 @@
-<p>products-create-page works!</p>
+<app-product-upsert-form
+  mode="create"
+  [initialValue]="null"
+  [saving]="saving"
+  [error]="error"
+  (submitted)="onCreate($event)"
+  (cancelled)="onCancel()"
+></app-product-upsert-form>
