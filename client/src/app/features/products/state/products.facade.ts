@@ -1,7 +1,11 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, finalize } from 'rxjs';
+import { BehaviorSubject, combineLatest, finalize, map } from 'rxjs';
+
 import { Product } from '../data-access/models/product.model';
 import { ProductsApiService } from '../data-access/products-api.service';
+import { DEFAULT_PRODUCTS_QUERY, ProductsQuery } from '../data-access/models/products-query.model';
+
+import { applyProductsQuery, ProductsQueryResult } from './apply-products-query';
 
 @Injectable({ providedIn: 'root' })
 export class ProductsFacade {
@@ -16,6 +20,13 @@ export class ProductsFacade {
   private readonly errorSubject = new BehaviorSubject<string | null>(null);
   public readonly error$ = this.errorSubject.asObservable();
 
+  private readonly querySubject = new BehaviorSubject<ProductsQuery>(DEFAULT_PRODUCTS_QUERY);
+  public readonly query$ = this.querySubject.asObservable();
+
+  public readonly view$ = combineLatest([this.allProducts$, this.query$]).pipe(
+    map(([products, query]): ProductsQueryResult => applyProductsQuery(products, query))
+  );
+
   loadAll(): void {
     this.loadingSubject.next(true);
     this.errorSubject.next(null);
@@ -27,5 +38,23 @@ export class ProductsFacade {
         next: (products) => this.allProductsSubject.next(products),
         error: () => this.errorSubject.next('Failed to load products'),
       });
+  }
+
+  setQuery(partial: Partial<ProductsQuery>): void {
+    const current = this.querySubject.value;
+
+    const next: ProductsQuery = { ...current, ...partial };
+
+    const shouldResetPage =
+      partial.q !== undefined ||
+      partial.status !== undefined ||
+      partial.sortBy !== undefined ||
+      partial.sortDir !== undefined;
+
+    if (shouldResetPage) {
+      next.page = 0;
+    }
+
+    this.querySubject.next(next);
   }
 }

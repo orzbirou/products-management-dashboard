@@ -1,0 +1,607 @@
+[
+  {
+    "id": "1",
+    "name": "Wireless Mouse",
+    "description": "Ergonomic wireless mouse for everyday work",
+    "price": 89.9,
+    "status": "active",
+    "imgUrl": "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-01-10T09:00:00.000Z",
+    "updatedAt": "2024-01-10T09:00:00.000Z"
+  },
+  {
+    "id": "2",
+    "name": "Mechanical Keyboard",
+    "description": "Backlit mechanical keyboard with tactile switches",
+    "price": 349.0,
+    "status": "active",
+    "imgUrl": "https://images.unsplash.com/photo-1541140532154-b024d705b90a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-01-12T12:30:00.000Z",
+    "updatedAt": "2024-01-15T08:45:00.000Z"
+  },
+  {
+    "id": "3",
+    "name": "Compact Keyboard",
+    "description": "Minimal compact keyboard for small desks",
+    "price": 229.0,
+    "status": "inactive",
+    "imgUrl": "https://images.unsplash.com/photo-1587829741301-dc798b83add3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-01-18T15:20:00.000Z",
+    "updatedAt": "2024-01-20T10:10:00.000Z"
+  },
+  {
+    "id": "4",
+    "name": "Wireless Headphones",
+    "description": "Over-ear wireless headphones for focused work",
+    "price": 499.0,
+    "status": "active",
+    "imgUrl": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-02-01T10:00:00.000Z",
+    "updatedAt": "2024-02-05T10:00:00.000Z"
+  },
+  {
+    "id": "5",
+    "name": "Gaming Headset",
+    "description": "Gaming headset with mic and comfortable padding",
+    "price": 399.0,
+    "status": "active",
+    "imgUrl": "https://images.unsplash.com/photo-1599669454699-248893623440?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-02-03T10:00:00.000Z",
+    "updatedAt": "2024-02-06T10:00:00.000Z"
+  },
+  {
+    "id": "6",
+    "name": "USB-C Hub",
+    "description": "Multiport USB-C hub for laptops",
+    "price": 129.0,
+    "status": "active",
+    "imgUrl": "https://images.unsplash.com/photo-1625842268584-8f3296236761?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-02-10T10:00:00.000Z",
+    "updatedAt": "2024-02-12T10:00:00.000Z"
+  },
+  {
+    "id": "7",
+    "name": "USB Hub (7 Ports)",
+    "description": "Seven-port USB hub for desk setups",
+    "price": 149.0,
+    "status": "inactive",
+    "imgUrl": "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-02-11T10:00:00.000Z",
+    "updatedAt": "2024-02-13T10:00:00.000Z"
+  },
+  {
+    "id": "8",
+    "name": "Portable SSD",
+    "description": "External SSD for fast backups",
+    "price": 299.0,
+    "status": "active",
+    "imgUrl": "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-02-15T10:00:00.000Z",
+    "updatedAt": "2024-02-18T10:00:00.000Z"
+  },
+  {
+    "id": "9",
+    "name": "USB Flash Drive",
+    "description": "Compact USB drive for quick transfers",
+    "price": 39.0,
+    "status": "active",
+    "imgUrl": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-02-19T10:00:00.000Z",
+    "updatedAt": "2024-02-19T10:00:00.000Z"
+  },
+  {
+    "id": "10",
+    "name": "Laptop Stand",
+    "description": "Aluminum stand for better ergonomics",
+    "price": 119.0,
+    "status": "active",
+    "imgUrl": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-02-22T10:00:00.000Z",
+    "updatedAt": "2024-02-25T10:00:00.000Z"
+  },
+
+  {
+    "id": "11",
+    "name": "Desk Lamp",
+    "description": "LED lamp for focused work sessions",
+    "price": 89.0,
+    "status": "inactive",
+    "imgUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-03-01T10:00:00.000Z",
+    "updatedAt": "2024-03-02T10:00:00.000Z"
+  },
+  {
+    "id": "12",
+    "name": "Webcam",
+    "description": "HD webcam for meetings",
+    "price": 179.0,
+    "status": "active",
+    "imgUrl": "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-03-03T10:00:00.000Z",
+    "updatedAt": "2024-03-04T10:00:00.000Z"
+  },
+  {
+    "id": "13",
+    "name": "Microphone",
+    "description": "USB microphone for clear audio",
+    "price": 249.0,
+    "status": "active",
+    "imgUrl": "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-03-05T10:00:00.000Z",
+    "updatedAt": "2024-03-06T10:00:00.000Z"
+  },
+  {
+    "id": "14",
+    "name": "Monitor",
+    "description": "27-inch productivity monitor",
+    "price": 999.0,
+    "status": "active",
+    "imgUrl": "https://images.unsplash.com/photo-1527443154391-507e9dc6c5cc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-03-07T10:00:00.000Z",
+    "updatedAt": "2024-03-09T10:00:00.000Z"
+  },
+  {
+    "id": "15",
+    "name": "Monitor Arm",
+    "description": "Adjustable desk arm for monitors",
+    "price": 219.0,
+    "status": "draft",
+    "imgUrl": "https://images.unsplash.com/photo-1586953208448-b95a79798f07?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-03-10T10:00:00.000Z",
+    "updatedAt": "2024-03-10T10:00:00.000Z"
+  },
+  {
+    "id": "16",
+    "name": "Desk Mat",
+    "description": "Large desk mat for keyboard and mouse",
+    "price": 59.0,
+    "status": "active",
+    "imgUrl": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-03-12T10:00:00.000Z",
+    "updatedAt": "2024-03-12T10:00:00.000Z"
+  },
+  {
+    "id": "17",
+    "name": "Mouse Pad",
+    "description": "Minimal mouse pad for precision",
+    "price": 29.0,
+    "status": "inactive",
+    "imgUrl": "https://images.unsplash.com/photo-1615494937408-187a454a5b84?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-03-14T10:00:00.000Z",
+    "updatedAt": "2024-03-15T10:00:00.000Z"
+  },
+  {
+    "id": "18",
+    "name": "Laptop Backpack",
+    "description": "Durable backpack for laptop commuting",
+    "price": 199.0,
+    "status": "active",
+    "imgUrl": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-03-16T10:00:00.000Z",
+    "updatedAt": "2024-03-16T10:00:00.000Z"
+  },
+  {
+    "id": "19",
+    "name": "Charging Cable",
+    "description": "USB-C charging cable (2m)",
+    "price": 25.0,
+    "status": "active",
+    "imgUrl": "https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-03-18T10:00:00.000Z",
+    "updatedAt": "2024-03-19T10:00:00.000Z"
+  },
+  {
+    "id": "20",
+    "name": "Desk Charger",
+    "description": "Multi-device charger for desk",
+    "price": 99.0,
+    "status": "active",
+    "imgUrl": "https://images.unsplash.com/photo-1609592820917-9c8f9c8b2c5b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-03-20T10:00:00.000Z",
+    "updatedAt": "2024-03-21T10:00:00.000Z"
+  },
+
+  {
+    "id": "21",
+    "name": "Smartphone",
+    "description": "Modern smartphone product shot",
+    "price": 2499.0,
+    "status": "active",
+    "imgUrl": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-04-01T10:00:00.000Z",
+    "updatedAt": "2024-04-03T10:00:00.000Z"
+  },
+  {
+    "id": "22",
+    "name": "Wireless Earbuds",
+    "description": "Compact earbuds with charging case",
+    "price": 549.0,
+    "status": "active",
+    "imgUrl": "https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-04-04T10:00:00.000Z",
+    "updatedAt": "2024-04-04T10:00:00.000Z"
+  },
+  {
+    "id": "23",
+    "name": "Smartwatch",
+    "description": "Fitness-focused smartwatch",
+    "price": 799.0,
+    "status": "inactive",
+    "imgUrl": "https://images.unsplash.com/photo-1544117519-31a4b719223d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-04-06T10:00:00.000Z",
+    "updatedAt": "2024-04-07T10:00:00.000Z"
+  },
+  {
+    "id": "24",
+    "name": "Tablet",
+    "description": "Tablet device for reading and note taking",
+    "price": 1899.0,
+    "status": "draft",
+    "imgUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-04-09T10:00:00.000Z",
+    "updatedAt": "2024-04-10T10:00:00.000Z"
+  },
+  {
+    "id": "25",
+    "name": "Power Bank",
+    "description": "Portable power bank for travel",
+    "price": 159.0,
+    "status": "active",
+    "imgUrl": "https://images.unsplash.com/photo-1609592820917-9c8f9c8b2c5b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-04-12T10:00:00.000Z",
+    "updatedAt": "2024-04-12T10:00:00.000Z"
+  },
+  {
+    "id": "26",
+    "name": "Router",
+    "description": "Wi-Fi router for home office",
+    "price": 299.0,
+    "status": "active",
+    "imgUrl": "https://images.unsplash.com/photo-1606904825846-647eb07f5be2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-04-14T10:00:00.000Z",
+    "updatedAt": "2024-04-15T10:00:00.000Z"
+  },
+  {
+    "id": "27",
+    "name": "Ethernet Cable",
+    "description": "Cat6 ethernet cable for stable connectivity",
+    "price": 19.0,
+    "status": "inactive",
+    "imgUrl": "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-04-16T10:00:00.000Z",
+    "updatedAt": "2024-04-16T10:00:00.000Z"
+  },
+  {
+    "id": "28",
+    "name": "Bluetooth Speaker",
+    "description": "Small speaker for music at the office",
+    "price": 229.0,
+    "status": "active",
+    "imgUrl": "https://images.unsplash.com/photo-1589003077984-894e133dabab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-04-18T10:00:00.000Z",
+    "updatedAt": "2024-04-19T10:00:00.000Z"
+  },
+  {
+    "id": "29",
+    "name": "Desk Organizer",
+    "description": "Keep cables and tools organized",
+    "price": 49.0,
+    "status": "draft",
+    "imgUrl": "https://images.unsplash.com/photo-1586953208448-b95a79798f07?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-04-20T10:00:00.000Z",
+    "updatedAt": "2024-04-20T10:00:00.000Z"
+  },
+  {
+    "id": "30",
+    "name": "Cable Clips",
+    "description": "Cable clips for clean desk setup",
+    "price": 15.0,
+    "status": "active",
+    "imgUrl": "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-04-22T10:00:00.000Z",
+    "updatedAt": "2024-04-23T10:00:00.000Z"
+  },
+
+  {
+    "id": "31",
+    "name": "Laptop",
+    "description": "Lightweight laptop for productivity",
+    "price": 5999.0,
+    "status": "active",
+    "imgUrl": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-05-01T10:00:00.000Z",
+    "updatedAt": "2024-05-02T10:00:00.000Z"
+  },
+  {
+    "id": "32",
+    "name": "Desktop PC",
+    "description": "Desktop computer for performance work",
+    "price": 7999.0,
+    "status": "active",
+    "imgUrl": "https://images.unsplash.com/photo-1587202372634-32705e3bf49c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-05-03T10:00:00.000Z",
+    "updatedAt": "2024-05-04T10:00:00.000Z"
+  },
+  {
+    "id": "33",
+    "name": "Graphics Card",
+    "description": "High-end GPU for gaming and creation",
+    "price": 3299.0,
+    "status": "inactive",
+    "imgUrl": "https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-05-05T10:00:00.000Z",
+    "updatedAt": "2024-05-06T10:00:00.000Z"
+  },
+  {
+    "id": "34",
+    "name": "Motherboard",
+    "description": "ATX motherboard for modern builds",
+    "price": 899.0,
+    "status": "active",
+    "imgUrl": "https://images.unsplash.com/photo-1555617981-dac3880eac6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-05-07T10:00:00.000Z",
+    "updatedAt": "2024-05-07T10:00:00.000Z"
+  },
+  {
+    "id": "35",
+    "name": "RAM Kit",
+    "description": "32GB DDR4 memory kit",
+    "price": 399.0,
+    "status": "draft",
+    "imgUrl": "https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-05-09T10:00:00.000Z",
+    "updatedAt": "2024-05-10T10:00:00.000Z"
+  },
+  {
+    "id": "36",
+    "name": "NVMe SSD",
+    "description": "Fast NVMe SSD for OS and apps",
+    "price": 499.0,
+    "status": "active",
+    "imgUrl": "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-05-11T10:00:00.000Z",
+    "updatedAt": "2024-05-12T10:00:00.000Z"
+  },
+  {
+    "id": "37",
+    "name": "PC Case",
+    "description": "Airflow-focused computer case",
+    "price": 349.0,
+    "status": "inactive",
+    "imgUrl": "https://images.unsplash.com/photo-1587202372634-32705e3bf49c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-05-13T10:00:00.000Z",
+    "updatedAt": "2024-05-13T10:00:00.000Z"
+  },
+  {
+    "id": "38",
+    "name": "CPU Cooler",
+    "description": "Quiet air cooler for CPUs",
+    "price": 199.0,
+    "status": "active",
+    "imgUrl": "https://images.unsplash.com/photo-1555617981-dac3880eac6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-05-14T10:00:00.000Z",
+    "updatedAt": "2024-05-15T10:00:00.000Z"
+  },
+  {
+    "id": "39",
+    "name": "Gaming Chair",
+    "description": "Comfort chair for long sessions",
+    "price": 899.0,
+    "status": "active",
+    "imgUrl": "https://images.unsplash.com/photo-1586953208448-b95a79798f07?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-05-16T10:00:00.000Z",
+    "updatedAt": "2024-05-16T10:00:00.000Z"
+  },
+  {
+    "id": "40",
+    "name": "Office Chair",
+    "description": "Ergonomic chair for home office",
+    "price": 1099.0,
+    "status": "draft",
+    "imgUrl": "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-05-18T10:00:00.000Z",
+    "updatedAt": "2024-05-19T10:00:00.000Z"
+  },
+
+  {
+    "id": "41",
+    "name": "Notebook",
+    "description": "Minimal notebook for planning",
+    "price": 19.0,
+    "status": "active",
+    "imgUrl": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-06-01T10:00:00.000Z",
+    "updatedAt": "2024-06-02T10:00:00.000Z"
+  },
+  {
+    "id": "42",
+    "name": "Pen Set",
+    "description": "Pens for daily notes",
+    "price": 12.0,
+    "status": "inactive",
+    "imgUrl": "https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-06-03T10:00:00.000Z",
+    "updatedAt": "2024-06-03T10:00:00.000Z"
+  },
+  {
+    "id": "43",
+    "name": "Desk Clock",
+    "description": "Minimal desk clock",
+    "price": 35.0,
+    "status": "active",
+    "imgUrl": "https://images.unsplash.com/photo-1495364141860-b0d03eccd065?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-06-05T10:00:00.000Z",
+    "updatedAt": "2024-06-06T10:00:00.000Z"
+  },
+  {
+    "id": "44",
+    "name": "Sticky Notes",
+    "description": "Sticky notes pack for reminders",
+    "price": 9.0,
+    "status": "active",
+    "imgUrl": "https://images.unsplash.com/photo-1590736969955-71cc94901144?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-06-07T10:00:00.000Z",
+    "updatedAt": "2024-06-08T10:00:00.000Z"
+  },
+  {
+    "id": "45",
+    "name": "Whiteboard",
+    "description": "Small whiteboard for tasks",
+    "price": 79.0,
+    "status": "draft",
+    "imgUrl": "https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-06-10T10:00:00.000Z",
+    "updatedAt": "2024-06-10T10:00:00.000Z"
+  },
+  {
+    "id": "46",
+    "name": "Bluetooth Keyboard",
+    "description": "Wireless bluetooth keyboard",
+    "price": 199.0,
+    "status": "active",
+    "imgUrl": "https://images.unsplash.com/photo-1587829741301-dc798b83add3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-06-12T10:00:00.000Z",
+    "updatedAt": "2024-06-12T10:00:00.000Z"
+  },
+  {
+    "id": "47",
+    "name": "Bluetooth Mouse",
+    "description": "Bluetooth mouse for tablets and laptops",
+    "price": 129.0,
+    "status": "inactive",
+    "imgUrl": "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-06-14T10:00:00.000Z",
+    "updatedAt": "2024-06-15T10:00:00.000Z"
+  },
+  {
+    "id": "48",
+    "name": "USB-C Charger",
+    "description": "Fast USB-C wall charger",
+    "price": 89.0,
+    "status": "active",
+    "imgUrl": "https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-06-16T10:00:00.000Z",
+    "updatedAt": "2024-06-17T10:00:00.000Z"
+  },
+  {
+    "id": "49",
+    "name": "Docking Station",
+    "description": "Docking station for multi-monitor setup",
+    "price": 699.0,
+    "status": "active",
+    "imgUrl": "https://images.unsplash.com/photo-1625842268584-8f3296236761?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-06-18T10:00:00.000Z",
+    "updatedAt": "2024-06-18T10:00:00.000Z"
+  },
+  {
+    "id": "50",
+    "name": "External Hard Drive",
+    "description": "External HDD for long-term storage",
+    "price": 259.0,
+    "status": "draft",
+    "imgUrl": "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-06-20T10:00:00.000Z",
+    "updatedAt": "2024-06-21T10:00:00.000Z"
+  },
+
+  {
+    "id": "51",
+    "name": "Cable Adapter",
+    "description": "USB-C to HDMI adapter",
+    "price": 69.0,
+    "status": "active",
+    "imgUrl": "https://images.unsplash.com/photo-1625842268584-8f3296236761?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-07-01T10:00:00.000Z",
+    "updatedAt": "2024-07-01T10:00:00.000Z"
+  },
+  {
+    "id": "52",
+    "name": "HDMI Cable",
+    "description": "High-speed HDMI cable",
+    "price": 29.0,
+    "status": "inactive",
+    "imgUrl": "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-07-02T10:00:00.000Z",
+    "updatedAt": "2024-07-03T10:00:00.000Z"
+  },
+  {
+    "id": "53",
+    "name": "Laptop Sleeve",
+    "description": "Protective sleeve for laptops",
+    "price": 79.0,
+    "status": "active",
+    "imgUrl": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-07-04T10:00:00.000Z",
+    "updatedAt": "2024-07-05T10:00:00.000Z"
+  },
+  {
+    "id": "54",
+    "name": "Phone Stand",
+    "description": "Adjustable stand for smartphones",
+    "price": 35.0,
+    "status": "active",
+    "imgUrl": "https://images.unsplash.com/photo-1586953208448-b95a79798f07?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-07-06T10:00:00.000Z",
+    "updatedAt": "2024-07-06T10:00:00.000Z"
+  },
+  {
+    "id": "55",
+    "name": "Cable Organizer",
+    "description": "Desk cable organizer",
+    "price": 25.0,
+    "status": "draft",
+    "imgUrl": "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-07-07T10:00:00.000Z",
+    "updatedAt": "2024-07-08T10:00:00.000Z"
+  },
+  {
+    "id": "56",
+    "name": "Laptop Dock",
+    "description": "Vertical dock for laptops",
+    "price": 149.0,
+    "status": "active",
+    "imgUrl": "https://images.unsplash.com/photo-1527443154391-507e9dc6c5cc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-07-09T10:00:00.000Z",
+    "updatedAt": "2024-07-10T10:00:00.000Z"
+  },
+  {
+    "id": "57",
+    "name": "Desk Setup Kit",
+    "description": "Starter kit for a clean desk setup",
+    "price": 0.0,
+    "status": "inactive",
+    "imgUrl": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-07-11T10:00:00.000Z",
+    "updatedAt": "2024-07-12T10:00:00.000Z"
+  },
+  {
+    "id": "58",
+    "name": "Workstation Bundle",
+    "description": "Keyboard, mouse and monitor essentials",
+    "price": 0.0,
+    "status": "draft",
+    "imgUrl": "https://images.unsplash.com/photo-1527443154391-507e9dc6c5cc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-07-13T10:00:00.000Z",
+    "updatedAt": "2024-07-14T10:00:00.000Z"
+  },
+  {
+    "id": "59",
+    "name": "Developer Desk",
+    "description": "Aesthetic developer desk accessories",
+    "price": 0.0,
+    "status": "active",
+    "imgUrl": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-07-15T10:00:00.000Z",
+    "updatedAt": "2024-07-16T10:00:00.000Z"
+  },
+  {
+    "id": "60",
+    "name": "Minimal Tech Bundle",
+    "description": "Minimal tech products for daily use",
+    "price": 0.0,
+    "status": "active",
+    "imgUrl": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    "createdAt": "2024-07-17T10:00:00.000Z",
+    "updatedAt": "2024-07-18T10:00:00.000Z"
+  }
+]
