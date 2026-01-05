@@ -12,7 +12,7 @@ export function applyProductsQuery(
 ): ProductsQueryResult {
   const q = query.q.trim().toLowerCase();
 
-  //Filter by status + search
+  // Filter by status and search text
   const filtered = products.filter((p) => {
     const statusOk = query.status === 'all' ? true : p.status === query.status;
 
@@ -25,7 +25,7 @@ export function applyProductsQuery(
     return name.includes(q) || desc.includes(q);
   });
 
-  //Sort
+  // Sort by selected column and direction
   const sorted = [...filtered].sort((a, b) => {
     let cmp = 0;
 
@@ -54,7 +54,7 @@ export function applyProductsQuery(
     return query.sortDir === 'asc' ? cmp : -cmp;
   });
 
-  //Pagination
+  // Apply pagination to get current page slice
   const total = sorted.length;
   const start = query.page * query.pageSize;
   const end = start + query.pageSize;

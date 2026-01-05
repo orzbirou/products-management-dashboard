@@ -1,7 +1,8 @@
 import { provideHttpClient } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { provideRouter } from '@angular/router';
+import { provideRouter, ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
 import { ProductsEditPageComponent } from './products-edit-page.component';
 
 describe('ProductsEditPageComponent', () => {
@@ -11,7 +12,14 @@ describe('ProductsEditPageComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ProductsEditPageComponent, NoopAnimationsModule],
-      providers: [provideRouter([]), provideHttpClient()],
+      providers: [
+        provideRouter([]),
+        provideHttpClient(),
+        {
+          provide: ActivatedRoute,
+          useValue: { paramMap: of(new Map([['id', '1']])) },
+        },
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ProductsEditPageComponent);

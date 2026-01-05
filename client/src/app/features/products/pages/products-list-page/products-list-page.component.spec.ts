@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 import { ProductsApiService } from '../../data-access/products-api.service';
 import { ProductsFacade } from '../../state/products.facade';
@@ -38,6 +38,7 @@ describe('ProductsListPageComponent', () => {
         { provide: ProductsFacade, useValue: mockFacade },
         { provide: ProductsApiService, useValue: mockApiService },
         { provide: Router, useValue: mockRouter },
+        { provide: ActivatedRoute, useValue: { snapshot: { queryParams: {} } } },
       ],
     }).compileComponents();
 
@@ -56,12 +57,16 @@ describe('ProductsListPageComponent', () => {
 
   it('should navigate to create page', () => {
     component.goToCreate();
-    expect(mockRouter.navigate).toHaveBeenCalledWith(['/products/new']);
+    expect(mockRouter.navigate).toHaveBeenCalledWith(['/products/new'], {
+      state: { queryParams: {} },
+    });
   });
 
   it('should navigate to edit page with product id', () => {
     component.goToEdit('123');
-    expect(mockRouter.navigate).toHaveBeenCalledWith(['/products', '123']);
+    expect(mockRouter.navigate).toHaveBeenCalledWith(['/products', '123'], {
+      state: { queryParams: {} },
+    });
   });
 
   it('should update query when search control value changes', (done) => {

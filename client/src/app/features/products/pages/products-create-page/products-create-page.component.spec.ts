@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { of, throwError } from 'rxjs';
 import { ProductsApiService } from '../../data-access/products-api.service';
 import { ProductsCreatePageComponent } from './products-create-page.component';
@@ -13,13 +13,15 @@ describe('ProductsCreatePageComponent', () => {
 
   beforeEach(async () => {
     const apiSpy = jasmine.createSpyObj('ProductsApiService', ['create']);
-    const routerSpy = jasmine.createSpyObj('Router', ['navigate']);
+    const routerSpy = jasmine.createSpyObj('Router', ['navigate', 'getCurrentNavigation']);
+    routerSpy.getCurrentNavigation.and.returnValue(null);
 
     await TestBed.configureTestingModule({
       imports: [ProductsCreatePageComponent, NoopAnimationsModule],
       providers: [
         { provide: ProductsApiService, useValue: apiSpy },
         { provide: Router, useValue: routerSpy },
+        { provide: ActivatedRoute, useValue: {} },
       ],
     }).compileComponents();
 
@@ -54,7 +56,9 @@ describe('ProductsCreatePageComponent', () => {
     });
 
     expect(apiService.create).toHaveBeenCalled();
-    expect(router.navigate).toHaveBeenCalledWith(['/products']);
+    expect(router.navigate).toHaveBeenCalledWith(['/products'], {
+      queryParams: {},
+    });
   });
 
   it('should set error on failed create', () => {
@@ -73,6 +77,8 @@ describe('ProductsCreatePageComponent', () => {
 
   it('should navigate to products list on cancel', () => {
     component.onCancel();
-    expect(router.navigate).toHaveBeenCalledWith(['/products']);
+    expect(router.navigate).toHaveBeenCalledWith(['/products'], {
+      queryParams: {},
+    });
   });
 });

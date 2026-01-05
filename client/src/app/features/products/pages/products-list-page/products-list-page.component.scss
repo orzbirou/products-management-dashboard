@@ -1,14 +1,14 @@
 .products-container {
-  padding: 16px; // Reduced padding
+  padding: 16px;
   height: 100vh;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
 
   h2 {
-    margin-bottom: 12px; // Reduced margin
+    margin-bottom: 12px;
     color: #333;
-    font-size: 1.25rem; // Smaller title
+    font-size: 1.25rem;
     flex-shrink: 0;
   }
 
@@ -125,7 +125,6 @@
   }
 }
 
-// Dropdown panel styling (global)
 ::ng-deep {
   .mat-mdc-select-panel {
     background-color: white !important;
@@ -313,7 +312,6 @@
   }
 }
 
-// Status badges
 [class^="status-"] {
   font-weight: 500;
   padding: 4px 8px;
@@ -650,7 +648,6 @@
   }
 }
 
-// Pagination - Smaller and compact
 ::ng-deep {
   mat-paginator {
     flex-shrink: 0 !important;
