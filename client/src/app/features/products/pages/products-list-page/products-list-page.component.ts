@@ -6,7 +6,7 @@ import {
 } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule, Sort } from '@angular/material/sort';
@@ -67,58 +67,101 @@ export class ProductsListPageComponent implements OnInit {
   constructor(
     private facade: ProductsFacade,
     private router: Router,
+    private route: ActivatedRoute,
     private api: ProductsApiService
   ) {
     this.loading$ = this.facade.loading$;
     this.error$ = this.facade.error$;
     this.view$ = this.facade.productsListView$;
 
+    const params = this.route.snapshot.queryParams;
+    if (params['q']) {
+      this.searchControl.setValue(params['q'], { emitEvent: false });
+    }
+    if (params['status'] && ['all', 'active', 'inactive'].includes(params['status'])) {
+      this.statusControl.setValue(params['status'], { emitEvent: false });
+    }
+
     this.searchControl.valueChanges
       .pipe(
-        startWith(this.searchControl.value),
         debounceTime(300),
         distinctUntilChanged(),
         takeUntilDestroyed()
       )
-      .subscribe((q) => this.facade.setQuery({ q }));
+      .subscribe((q) => {
+        this.updateQueryParams({ q });
+        this.facade.setQuery({ q });
+      });
 
     this.statusControl.valueChanges
       .pipe(
-        startWith(this.statusControl.value),
         distinctUntilChanged(),
         takeUntilDestroyed()
       )
-      .subscribe((status) => this.facade.setQuery({ status }));
+      .subscribe((status) => {
+        this.updateQueryParams({ status });
+        this.facade.setQuery({ status });
+      });
   }
 
   ngOnInit(): void {
+    const params = this.route.snapshot.queryParams;
+    const initialQuery: any = {};
+
+    if (params['q']) initialQuery.q = params['q'];
+    if (params['status']) initialQuery.status = params['status'];
+    if (params['sortBy']) initialQuery.sortBy = params['sortBy'];
+    if (params['sortDir']) initialQuery.sortDir = params['sortDir'];
+    if (params['page']) initialQuery.page = parseInt(params['page'], 10);
+    if (params['pageSize']) initialQuery.pageSize = parseInt(params['pageSize'], 10);
+
+    if (Object.keys(initialQuery).length > 0) {
+      this.facade.setQuery(initialQuery);
+    }
+
     this.facade.loadAll();
   }
 
   onPageChange(e: PageEvent): void {
+    this.updateQueryParams({ page: e.pageIndex, pageSize: e.pageSize });
     this.facade.setQuery({ page: e.pageIndex, pageSize: e.pageSize });
   }
 
   onSortChange(sort: Sort): void {
     if (!sort.direction) {
+      this.updateQueryParams({ sortBy: 'none', sortDir: 'asc' });
       this.facade.setQuery({ sortBy: 'none', sortDir: 'asc' });
       return;
     }
 
     const sortBy = sort.active as 'name' | 'price' | 'createdAt';
 
+    this.updateQueryParams({ sortBy, sortDir: sort.direction });
     this.facade.setQuery({
       sortBy,
       sortDir: sort.direction,
     });
   }
 
+  private updateQueryParams(params: any): void {
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: params,
+      queryParamsHandling: 'merge',
+      replaceUrl: true
+    });
+  }
+
   goToCreate(): void {
-    this.router.navigate(['/products/new']);
+    this.router.navigate(['/products/new'], {
+      state: { queryParams: this.route.snapshot.queryParams }
+    });
   }
 
   goToEdit(id: string): void {
-    this.router.navigate(['/products', id]);
+    this.router.navigate(['/products', id], {
+      state: { queryParams: this.route.snapshot.queryParams }
+    });
   }
 
   deleteProduct(id: string, name: string): void {

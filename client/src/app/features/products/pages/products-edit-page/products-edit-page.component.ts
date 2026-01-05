@@ -21,12 +21,16 @@ export class ProductsEditPageComponent implements OnInit {
   loading = true;
   saving = false;
   error: string | null = null;
+  private returnQueryParams: any = {};
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private api: ProductsApiService
-  ) {}
+  ) {
+    const navigation = this.router.getCurrentNavigation();
+    this.returnQueryParams = navigation?.extras?.state?.['queryParams'] || {};
+  }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -78,7 +82,7 @@ export class ProductsEditPageComponent implements OnInit {
       .pipe(finalize(() => this.saving = false))
       .subscribe({
         next: () => {
-          this.router.navigate(['/products']);
+          this.router.navigate(['/products'], { queryParams: this.returnQueryParams });
         },
         error: (err) => {
           this.error = err?.error?.message || 'Failed to update product. Please try again.';
@@ -87,6 +91,6 @@ export class ProductsEditPageComponent implements OnInit {
   }
 
   onCancel(): void {
-    this.router.navigate(['/products']);
+    this.router.navigate(['/products'], { queryParams: this.returnQueryParams });
   }
 }

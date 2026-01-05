@@ -32,6 +32,25 @@
     mat-form-field {
       width: 100%;
 
+      &.mat-form-field-invalid {
+        ::ng-deep {
+          .mdc-text-field--outlined {
+            .mdc-notched-outline {
+              .mdc-notched-outline__leading,
+              .mdc-notched-outline__notch,
+              .mdc-notched-outline__trailing {
+                border-color: #f44336 !important;
+                border-width: 2px !important;
+              }
+            }
+          }
+
+          .mat-mdc-floating-label {
+            color: #f44336 !important;
+          }
+        }
+      }
+
       ::ng-deep {
         .mat-mdc-form-field-subscript-wrapper {
           margin-top: 4px;
@@ -40,6 +59,18 @@
         .mat-mdc-text-field-wrapper {
           background-color: #fafafa;
           border-radius: 4px;
+        }
+
+        .mat-mdc-form-field-infix {
+          max-width: 100%;
+          overflow: hidden;
+        }
+
+        .mdc-text-field__input {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          max-width: 100%;
         }
 
         .mdc-text-field--outlined {
@@ -71,19 +102,35 @@
         .mat-mdc-form-field-error {
           font-size: 0.8125rem;
           margin-top: 4px;
+          color: #f44336 !important;
+          font-weight: 500;
         }
 
         input,
         textarea {
           padding-left: 8px;
+          padding-right: 8px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+          white-space: nowrap;
         }
 
         .mat-mdc-select-value {
           padding-left: 8px;
+          padding-right: 8px;
         }
 
         .mat-mdc-select-trigger {
           padding-left: 8px;
+          padding-right: 8px;
+        }
+
+        .mat-mdc-select-arrow-wrapper {
+          padding-right: 8px;
         }
       }
     }

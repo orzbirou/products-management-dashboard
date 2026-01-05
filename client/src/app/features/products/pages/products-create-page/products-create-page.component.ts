@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ProductsApiService } from '../../data-access/products-api.service';
 import { ProductUpsertDto } from '../../data-access/models/product-upsert.dto';
 import { ProductUpsertFormComponent } from '../../ui/product-upsert-form/product-upsert-form.component';
@@ -15,11 +15,16 @@ import { finalize } from 'rxjs';
 export class ProductsCreatePageComponent {
   saving = false;
   error: string | null = null;
+  private returnQueryParams: any = {};
 
   constructor(
     private api: ProductsApiService,
-    private router: Router
-  ) {}
+    private router: Router,
+    private route: ActivatedRoute
+  ) {
+    const navigation = this.router.getCurrentNavigation();
+    this.returnQueryParams = navigation?.extras?.state?.['queryParams'] || {};
+  }
 
   onCreate(dto: ProductUpsertDto): void {
     this.saving = true;
@@ -29,7 +34,7 @@ export class ProductsCreatePageComponent {
       .pipe(finalize(() => this.saving = false))
       .subscribe({
         next: () => {
-          this.router.navigate(['/products']);
+          this.router.navigate(['/products'], { queryParams: this.returnQueryParams });
         },
         error: (err) => {
           this.error = err?.error?.message || 'Failed to create product. Please try again.';
@@ -38,6 +43,6 @@ export class ProductsCreatePageComponent {
   }
 
   onCancel(): void {
-    this.router.navigate(['/products']);
+    this.router.navigate(['/products'], { queryParams: this.returnQueryParams });
   }
 }
