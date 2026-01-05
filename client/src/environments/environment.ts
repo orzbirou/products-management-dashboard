@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://YOUR_RENDER_URL_HERE/api'
+  apiUrl: 'https://products-management-dashboard-gx8f.onrender.com'
 };
