@@ -5,6 +5,8 @@
     "ng": "ng",
     "start": "ng serve --proxy-config proxy.conf.json",
     "build": "ng build",
+    "build:prod": "ng build --base-href=/product-management-dashboard/",
+    "deploy": "npm run build:prod && npx angular-cli-ghpages --dir=dist/client/browser",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
