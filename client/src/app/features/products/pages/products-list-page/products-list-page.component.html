@@ -1,6 +1,11 @@
 <div class="products-container">
   <h2>Products List</h2>
 
+  <mat-form-field appearance="outline" class="search-field">
+  <mat-label>Search</mat-label>
+  <input matInput [formControl]="searchControl" placeholder="Search by name/description" />
+</mat-form-field>
+
   <!-- Loading state -->
   @if (loading$ | async) {
   <div class="loading-container">
