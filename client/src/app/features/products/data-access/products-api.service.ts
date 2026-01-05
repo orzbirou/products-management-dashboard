@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from '../../../../environments/environment';
 import { ProductUpsertDto } from './models/product-upsert.dto';
 import { Product } from './models/product.model';
 
@@ -8,7 +9,7 @@ import { Product } from './models/product.model';
   providedIn: 'root',
 })
 export class ProductsApiService {
-  private readonly baseUrl = '/api/products';
+  private readonly baseUrl = `${environment.apiUrl}/products`;
 
   constructor(private http: HttpClient) {}
 

@@ -90,7 +90,7 @@ app.delete('/api/products/:id', async (req, res) => {
   res.json(deleted);
 });
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 async function bootstrap() {
   try {

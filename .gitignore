@@ -1,0 +1,22 @@
+# Angular environment files
+environment.*.ts
+
+# Client dependencies and build
+client/node_modules
+client/dist
+client/.angular
+
+# Server dependencies
+server/node_modules
+
+# Environment variables
+.env
+server/.env
+
+# IDE
+.vscode
+.idea
+
+# OS
+.DS_Store
+Thumbs.db
