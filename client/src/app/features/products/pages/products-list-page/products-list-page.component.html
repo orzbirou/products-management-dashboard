@@ -1,10 +1,25 @@
 <div class="products-container">
   <h2>Products List</h2>
 
-  <mat-form-field appearance="outline" class="search-field">
-  <mat-label>Search</mat-label>
-  <input matInput [formControl]="searchControl" placeholder="Search by name/description" />
-</mat-form-field>
+  <div class="filters-toolbar">
+    <mat-form-field appearance="outline" class="search-field">
+      <mat-label>Search</mat-label>
+      <input matInput [formControl]="searchControl" placeholder="Search by name/description" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="status-field">
+      <mat-label>Status</mat-label>
+      <mat-select [formControl]="statusControl">
+        <mat-option value="all">All</mat-option>
+        <mat-option value="active">Active</mat-option>
+        <mat-option value="inactive">Inactive</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="goToCreate()" class="new-product-btn">
+      Add New Product
+    </button>
+  </div>
 
   <!-- Loading state -->
   @if (loading$ | async) {
@@ -98,6 +113,16 @@
         </td>
       </ng-container>
 
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let product">
+          <button mat-button color="primary" (click)="goToEdit(product.id)">
+            Edit
+          </button>
+        </td>
+      </ng-container>
+
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
@@ -157,6 +182,10 @@
             <span class="value">{{ product.updatedAt | date : "short" }}</span>
           </div>
         </div>
+        
+        <button mat-raised-button color="primary" (click)="goToEdit(product.id)" class="edit-btn-mobile">
+          Edit
+        </button>
       </div>
     </div>
     }
