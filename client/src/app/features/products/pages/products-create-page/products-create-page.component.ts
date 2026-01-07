@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { ActivatedRoute, Router, Params } from '@angular/router';
 import { finalize } from 'rxjs';
 import { ProductUpsertDto } from '../../data-access/models/product-upsert.dto';
 import { ProductsApiService } from '../../data-access/products-api.service';
@@ -13,18 +13,15 @@ import { ProductUpsertFormComponent } from '../../ui/product-upsert-form/product
   styleUrl: './products-create-page.component.scss',
 })
 export class ProductsCreatePageComponent {
+  private readonly api = inject(ProductsApiService);
+  private readonly router = inject(Router);
+  private readonly route = inject(ActivatedRoute);
+
   saving = false;
   error: string | null = null;
-  private returnQueryParams: any = {};
 
-  constructor(
-    private api: ProductsApiService,
-    private router: Router,
-    private route: ActivatedRoute
-  ) {
-    const navigation = this.router.getCurrentNavigation();
-    this.returnQueryParams = navigation?.extras?.state?.['queryParams'] || {};
-  }
+  private readonly returnQueryParams: Params = 
+    this.router.getCurrentNavigation()?.extras?.state?.['queryParams'] || {};
 
   onCreate(dto: ProductUpsertDto): void {
     this.saving = true;
@@ -34,20 +31,18 @@ export class ProductsCreatePageComponent {
       .create(dto)
       .pipe(finalize(() => (this.saving = false)))
       .subscribe({
-        next: () => {
-          this.router.navigate(['/products'], {
-            queryParams: this.returnQueryParams,
-          });
-        },
-        error: (err) => {
-          this.error =
-            err?.error?.message ||
-            'Failed to create product. Please try again.';
+        next: () => this.navigateBack(),
+        error: (err: { error?: { message?: string } }) => {
+          this.error = err?.error?.message || 'Failed to create product. Please try again.';
         },
       });
   }
 
   onCancel(): void {
+    this.navigateBack();
+  }
+
+  private navigateBack(): void {
     this.router.navigate(['/products'], {
       queryParams: this.returnQueryParams,
     });

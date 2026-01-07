@@ -73,7 +73,7 @@ describe('ProductsListPageComponent', () => {
     setTimeout(() => {
       component.searchControl.setValue('test');
       setTimeout(() => {
-        expect(mockFacade.setQuery).toHaveBeenCalledWith({ q: 'test' });
+        expect(mockFacade.setQuery).toHaveBeenCalledWith({ q: 'test', page: 0 });
         done();
       }, 350);
     }, 50);
@@ -81,7 +81,7 @@ describe('ProductsListPageComponent', () => {
 
   it('should update query when status control value changes', () => {
     component.statusControl.setValue('active');
-    expect(mockFacade.setQuery).toHaveBeenCalledWith({ status: 'active' });
+    expect(mockFacade.setQuery).toHaveBeenCalledWith({ status: 'active', page: 0 });
   });
 
   it('should delete product after confirmation', () => {

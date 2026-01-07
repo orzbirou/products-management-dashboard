@@ -17,7 +17,13 @@ describe('ProductsEditPageComponent', () => {
         provideHttpClient(),
         {
           provide: ActivatedRoute,
-          useValue: { paramMap: of(new Map([['id', '1']])) },
+          useValue: {
+            snapshot: {
+              paramMap: {
+                get: (key: string) => (key === 'id' ? '1' : null)
+              }
+            }
+          },
         },
       ],
     }).compileComponents();

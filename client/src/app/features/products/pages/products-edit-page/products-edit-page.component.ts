@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, Params } from '@angular/router';
 import { finalize } from 'rxjs';
 import { ProductUpsertDto } from '../../data-access/models/product-upsert.dto';
 import { Product } from '../../data-access/models/product.model';
@@ -16,32 +16,29 @@ import { ProductUpsertFormComponent } from '../../ui/product-upsert-form/product
   styleUrl: './products-edit-page.component.scss',
 })
 export class ProductsEditPageComponent implements OnInit {
+  private readonly route = inject(ActivatedRoute);
+  private readonly router = inject(Router);
+  private readonly api = inject(ProductsApiService);
+
   productId: string | null = null;
   initialValue: ProductUpsertDto | null = null;
   loading = true;
   saving = false;
   error: string | null = null;
-  private returnQueryParams: any = {};
 
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private api: ProductsApiService
-  ) {
-    const navigation = this.router.getCurrentNavigation();
-    this.returnQueryParams = navigation?.extras?.state?.['queryParams'] || {};
-  }
+  private readonly returnQueryParams: Params = 
+    this.router.getCurrentNavigation()?.extras?.state?.['queryParams'] || {};
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe((params) => {
-      this.productId = params.get('id');
-      if (this.productId) {
-        this.loadProduct(this.productId);
-      } else {
-        this.error = 'Product ID is missing';
-        this.loading = false;
-      }
-    });
+    const id = this.route.snapshot.paramMap.get('id');
+    
+    if (id) {
+      this.productId = id;
+      this.loadProduct(id);
+    } else {
+      this.error = 'Product ID is missing';
+      this.loading = false;
+    }
   }
 
   private loadProduct(id: string): void {
@@ -55,9 +52,8 @@ export class ProductsEditPageComponent implements OnInit {
         next: (product: Product) => {
           this.initialValue = this.mapToDto(product);
         },
-        error: (err) => {
-          this.error =
-            err?.error?.message || 'Failed to load product. Please try again.';
+        error: (err: { error?: { message?: string } }) => {
+          this.error = err?.error?.message || 'Failed to load product. Please try again.';
         },
       });
   }
@@ -73,9 +69,7 @@ export class ProductsEditPageComponent implements OnInit {
   }
 
   onUpdate(dto: ProductUpsertDto): void {
-    if (!this.productId) {
-      return;
-    }
+    if (!this.productId) return;
 
     this.saving = true;
     this.error = null;
@@ -84,20 +78,18 @@ export class ProductsEditPageComponent implements OnInit {
       .update(this.productId, dto)
       .pipe(finalize(() => (this.saving = false)))
       .subscribe({
-        next: () => {
-          this.router.navigate(['/products'], {
-            queryParams: this.returnQueryParams,
-          });
-        },
-        error: (err) => {
-          this.error =
-            err?.error?.message ||
-            'Failed to update product. Please try again.';
+        next: () => this.navigateBack(),
+        error: (err: { error?: { message?: string } }) => {
+          this.error = err?.error?.message || 'Failed to update product. Please try again.';
         },
       });
   }
 
   onCancel(): void {
+    this.navigateBack();
+  }
+
+  private navigateBack(): void {
     this.router.navigate(['/products'], {
       queryParams: this.returnQueryParams,
     });

@@ -10,7 +10,7 @@ import { ProductsApiService } from './products-api.service';
 describe('ProductsApiService', () => {
   let service: ProductsApiService;
   let httpMock: HttpTestingController;
-  const baseUrl = '/api/products';
+  const baseUrl = 'https://products-management-dashboard-gx8f.onrender.com/api/products';
 
   beforeEach(() => {
     TestBed.configureTestingModule({

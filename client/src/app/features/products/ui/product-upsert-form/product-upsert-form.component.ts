@@ -6,18 +6,27 @@ import {
   OnChanges,
   Output,
   SimpleChanges,
+  inject,
 } from '@angular/core';
 import {
-  FormBuilder,
-  FormGroup,
+  NonNullableFormBuilder,
   ReactiveFormsModule,
   Validators,
+  FormControl,
 } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { ProductUpsertDto } from '../../data-access/models/product-upsert.dto';
+
+interface ProductForm {
+  name: FormControl<string>;
+  description: FormControl<string>;
+  price: FormControl<number>;
+  status: FormControl<'active' | 'inactive' | 'draft'>;
+  imgUrl: FormControl<string>;
+}
 
 @Component({
   selector: 'app-product-upsert-form',
@@ -34,6 +43,8 @@ import { ProductUpsertDto } from '../../data-access/models/product-upsert.dto';
   styleUrls: ['./product-upsert-form.component.scss'],
 })
 export class ProductUpsertFormComponent implements OnChanges {
+  private fb = inject(NonNullableFormBuilder);
+
   @Input() initialValue: ProductUpsertDto | null = null;
   @Input() mode: 'create' | 'edit' = 'create';
   @Input() saving = false;
@@ -42,37 +53,28 @@ export class ProductUpsertFormComponent implements OnChanges {
   @Output() submitted = new EventEmitter<ProductUpsertDto>();
   @Output() cancelled = new EventEmitter<void>();
 
-  form: FormGroup;
-
-  constructor(private fb: FormBuilder) {
-    this.form = this.fb.group({
-      name: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(2),
-          Validators.maxLength(60),
-        ],
-      ],
-      description: ['', [Validators.maxLength(300)]],
-      price: [0, [Validators.required, Validators.min(0.01)]],
-      status: [
-        'active' as 'active' | 'inactive' | 'draft',
-        [Validators.required],
-      ],
-      imgUrl: ['', [Validators.pattern(/^https?:\/\/.+/)]],
-    });
-  }
+  readonly form = this.fb.group<ProductForm>({
+    name: this.fb.control('', [
+      Validators.required,
+      Validators.minLength(2),
+      Validators.maxLength(60),
+    ]),
+    description: this.fb.control('', [Validators.maxLength(300)]),
+    price: this.fb.control(0, [Validators.required, Validators.min(0.01)]),
+    status: this.fb.control('active', [Validators.required]),
+    imgUrl: this.fb.control('', [Validators.pattern(/^https?:\/\/.+/)]),
+  });
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['initialValue'] && this.initialValue) {
-      this.form.patchValue(this.initialValue);
+    const initialValueChange = changes['initialValue'];
+    if (initialValueChange?.currentValue) {
+      this.form.patchValue(initialValueChange.currentValue);
     }
   }
 
   onSubmit(): void {
-    this.form.markAllAsTouched();
     if (this.form.invalid) {
+      this.form.markAllAsTouched();
       return;
     }
     this.submitted.emit(this.form.getRawValue());
